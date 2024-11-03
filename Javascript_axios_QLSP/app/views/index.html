@@ -103,11 +103,13 @@
                                     placeholder="Nhập từ khóa"
                                     aria-label="Recipient's username"
                                     aria-describedby="basic-addon2"
+                                    id="txtSearch"
                                 />
                                 <div class="input-group-append">
                                     <span
                                         class="input-group-text"
                                         id="basic-addon2"
+                                        onclick="searchProductByName()"
                                         ><i class="fa fa-search"></i
                                     ></span>
                                 </div>
@@ -156,12 +158,29 @@
                         <!-- Modal body -->
                         <div class="modal-body">
                             <div class="form-group">
+                                <label>Mã Sản Phẩm</label>
+                                <input
+                                    id="MaSP"
+                                    class="form-control"
+                                    placeholder="Mã sản phẩm được tạo tự động"
+                                    readonly
+                                />
+                                <div
+                                    class="error text-danger"
+                                    id="errMaSP"
+                                ></div>
+                            </div>
+                            <div class="form-group">
                                 <label>Tên Sản Phẩm</label>
                                 <input
                                     id="TenSP"
                                     class="form-control"
                                     placeholder="Nhập vào tên sản phẩm"
                                 />
+                                <div
+                                    class="error text-danger"
+                                    id="errTenSP"
+                                ></div>
                             </div>
                             <div class="form-group">
                                 <label>Giá</label>
@@ -170,6 +189,10 @@
                                     class="form-control"
                                     placeholder="Nhập vào giá"
                                 />
+                                <div
+                                    class="error text-danger"
+                                    id="errGiaSP"
+                                ></div>
                             </div>
                             <div class="form-group">
                                 <label>Hình Ảnh</label>
@@ -178,6 +201,10 @@
                                     class="form-control"
                                     placeholder="Nhập vào hình sản phẩm"
                                 />
+                                <div
+                                    class="error text-danger"
+                                    id="errHinhSP"
+                                ></div>
                             </div>
                             <div class="form-group">
                                 <label>Mô tả</label>
@@ -186,6 +213,10 @@
                                     class="form-control"
                                     placeholder="Nhập vào hình sản phẩm"
                                 />
+                                <div
+                                    class="error text-danger"
+                                    id="errMoTaSP"
+                                ></div>
                             </div>
                         </div>
                         <!-- Modal footer -->
@@ -197,10 +228,20 @@
                             >
                                 Đóng
                             </button>
-                            <button type="button" class="btn btn-primary">
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                onclick="addProduct()"
+                                id="btnThem"
+                            >
                                 Thêm
                             </button>
-                            <button type="button" class="btn btn-warning">
+                            <button
+                                type="button"
+                                class="btn btn-warning"
+                                id="btnCapNhat"
+                                onclick="updateProduct()"
+                            >
                                 Cập Nhật
                             </button>
                         </div>

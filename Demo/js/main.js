@@ -77,19 +77,24 @@ async function fetchData() {
     try {
         // API 1
         const response = await fetch(
-            "https://65fc26b514650eb2100ba786.mockapi.io/produc"
+            "https://65fc26b514650eb2100ba786.mockapi.io/product"
         );
-        const data = response.json();
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
         console.log("data: ", data);
 
         // API2: chờ data từ API1 để xử lý tiếp
         const response2 = await fetch(
             "https://65fc26b514650eb2100ba786.mockapi.io/products"
         );
-        const data2 = response.json();
+        const data2 = response2.json();
         console.log("data2: ", data2);
     } catch (error) {
-        console.log("error: ", error);
+        console.log("error1: ", error);
     }
 }
+
 fetchData();
